@@ -374,7 +374,6 @@ func (collector *MetricCollector) Collect(ch chan<- prometheus.Metric) {
 			runningIngestTaskCount++
 		}
 	}
-	ch <- prometheus.MustNewConstMetric(collector.DruidRunningTasks, prometheus.GaugeValue, float64(len(runningTasks)))
 	ch <- prometheus.MustNewConstMetric(collector.DruidRunningIngestTasks, prometheus.GaugeValue, runningIngestTaskCount)
 
 	workers := getDruidWorkersData(workersURL)
